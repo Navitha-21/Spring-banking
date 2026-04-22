@@ -40,7 +40,7 @@ public class AccountRepository {
         Account account = findById(id);
         if(account != null){
             entityManager.remove(account);
-            throw new RuntimeException();
+//            throw new RuntimeException();
         }
     }
 }
