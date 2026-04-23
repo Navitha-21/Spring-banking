@@ -27,12 +27,12 @@ public class TransactionsRepository {
         return entityManager.createQuery(" From Transactions ", Transactions.class).getResultList();
     }
 
-    public List<Transactions> findByAccount(Account account) {
-        return entityManager.createQuery("From Transactions transaction Where transaction.account = :acc",Transactions.class ).setParameter("acc",account).getResultList();
+    public List<Transactions> findByAccount(String acc_num) {
+        return entityManager.createQuery("From Transactions t Where t.acc_num = :acc",Transactions.class ).setParameter("acc",acc_num).getResultList();
     }
 
     @Transactional
-    public  void delete (Long id ) {
+    public  void delete (long id ) {
         Transactions tnx = findById(id);
         if(tnx != null) {
             entityManager.remove(tnx);

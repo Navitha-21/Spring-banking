@@ -39,9 +39,9 @@ public class AccountService {
         accountRepository.deleteWithFailure(id);
     }
 
-    public void insertTransactions(Transactions tnx) {
-       transactionsRepository.save(tnx);
-    }
+//    public void insertTransactions(Transactions tnx) {
+//       transactionsRepository.save(tnx);
+//    }
 
 
     public void deposit (Long acc_id, double amount) {
@@ -68,6 +68,10 @@ public class AccountService {
 
     public  void withdraw(Long acc_id,double amount ){
         Account acc = accountRepository.findById(acc_id);
+        if (acc == null) {
+            System.out.println("Account not found");
+            return;
+        }
         if (acc.getBalance() < amount) {
             System.out.println("Insufficient balance");
             return;
@@ -77,36 +81,36 @@ public class AccountService {
         saveTransactions(acc,"Withdraw",amount);
     }
 
-    public void transfer(Long fromAcc_id, Long toACC_id, double amount){
+    public void transfer(Long fromAcc_num, Long toAcc_num, double amount){
 
-        Account from = accountRepository.findById(fromAcc_id);
-
-        if(from.getBalance() < amount){
-            System.out.println("Error");
+        Account from = accountRepository.findById(fromAcc_num);
+        Account to = accountRepository.findById(toAcc_num);
+        if (from == null || to == null) {
+            System.out.println("Account not found");
             return;
-        }else{
-            from.setBalance(from.getBalance() - amount);
-
-            Account to = accountRepository.findById(toACC_id);
-            to.setBalance(to.getBalance() + amount);
-            accountRepository.save(from);
-            accountRepository.save(to);
-
-            saveTransactions(from, "TransferOut", amount);
-            saveTransactions(to, "TransferIn", amount);
         }
 
+        if(from.getBalance() < amount){
+            System.out.println("Insufficient balance");
+            return;
+        }
+        from.setBalance(from.getBalance() - amount);
+        to.setBalance(to.getBalance() + amount);
+        accountRepository.save(from);
+        accountRepository.save(to);
 
+        saveTransactions(from, "TransferOut", amount);
+        saveTransactions(to, "TransferIn", amount);
     }
 
-    public void printTransactions(Long accId) {
-        Account acc = accountRepository.findById(accId);
+    public void printTransactions(Long acc_id) {
+        Account acc = accountRepository.findById(acc_id);
 
         if (acc == null) {
             System.out.println("Account not found");
             return;
         }
-        transactionsRepository.findByAccount(acc).forEach(System.out::println);
+        transactionsRepository.findByAccount(acc.getAcc_num()).forEach(System.out::println);
     }
 
     private void saveTransactions(Account acc,String type,double amount){

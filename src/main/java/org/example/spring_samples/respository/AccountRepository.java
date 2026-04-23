@@ -43,10 +43,5 @@ public class AccountRepository {
 //            throw new RuntimeException();
         }
     }
-//
-//    @Transactional
-//    public void updateBalance(String acc_num, double balance){
-//        entityManager.persist(acc_num);
-//    }
 
 }
