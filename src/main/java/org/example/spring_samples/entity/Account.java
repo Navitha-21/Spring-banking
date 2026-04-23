@@ -1,4 +1,4 @@
-package org.example.spring_samples.data_jpa_hibernate.entity;
+package org.example.spring_samples.entity;
 
 import jakarta.persistence.*;
 
@@ -7,8 +7,8 @@ import jakarta.persistence.*;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
-    private String id;
+    @Column(name="acc_id")
+    private Long id;
 
     @Column(name="acc_num")
     private String acc_num;
@@ -28,10 +28,10 @@ public class Account {
     @Column(name="balance")
     private double balance;
 
-    public String getId(){
+    public Long getId(){
         return id;
     }
-    public void setId(String id){
+    public void setId(Long id){
         this.id=id;
     }
 

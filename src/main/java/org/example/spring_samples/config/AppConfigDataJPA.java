@@ -1,4 +1,4 @@
-package org.example.spring_samples.data_jpa_hibernate.config;
+package org.example.spring_samples.config;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.context.annotation.Bean;
@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan("org.example.spring_samples.data_jpa_hibernate")
+@ComponentScan("org.example.spring_samples")
 @EnableTransactionManagement
 public class AppConfigDataJPA {
     @Bean
@@ -29,7 +29,7 @@ public class AppConfigDataJPA {
     public LocalContainerEntityManagerFactoryBean entityManager() {
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
         emf.setDataSource(dataSource());
-        emf.setPackagesToScan("org.example.spring_work");
+        emf.setPackagesToScan("org.example.spring_samples");
 
         HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
         emf.setJpaVendorAdapter(hibernateJpaVendorAdapter);
