@@ -56,7 +56,7 @@ public class AccountService {
     }
 
 //    public void depositt(Long acc_id, double amount){
-//        Transactions tnx= transactionsRepository.findById(acc_id);
+//        Transactions tnx= (Transactions) transactionsRepository.getTransactions(amount);
 //        if(tnx==null){
 //            System.out.println("Account not found");
 //            return;
