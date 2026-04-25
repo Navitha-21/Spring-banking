@@ -24,12 +24,15 @@ public class TransactionsRepository {
     }
 
     public List<Transactions> getTransactions(){
-        return entityManager.createQuery(" From Transactions ", Transactions.class).getResultList();
+        return entityManager.createQuery(" FROM Transactions ", Transactions.class).getResultList();
     }
 
-    public List<Transactions> findByAccount(String acc_num) {
-        return entityManager.createQuery("From Transactions t Where t.acc_num = :acc",Transactions.class ).setParameter("acc",acc_num).getResultList();
-    }
+//    public List<Transactions> findByAccount(String acc_num) {
+//        return entityManager.createQuery("FROM Transactions t WHERE t.account.acc_num = :acc",Transactions.class ).setParameter("acc",acc_num).getResultList();
+//    }
+public List<Transactions> findByAccount(Account account) {
+    return entityManager.createQuery("FROM Transactions t WHERE t.account = :acc",Transactions.class ).setParameter("acc",account).getResultList();
+}
 
     @Transactional
     public  void delete (long id ) {

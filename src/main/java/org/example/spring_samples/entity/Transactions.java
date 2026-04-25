@@ -19,6 +19,9 @@ public class Transactions {
     @Column(name="type")
     private String type;
 
+    @Column(name="fromacc_id")
+    private Long fromAcc;
+
 //
 //    @Column(name="account_id")
 //    public String account_id;
@@ -53,6 +56,12 @@ public class Transactions {
         this.type = type;
     }
 
+    public  Long getFromAcc() {
+        return fromAcc;
+    }
+    public void setFromAcc(Long fromAcc){
+        this.fromAcc = fromAcc;
+    }
 
 //    public String getAccount_id(){
 //        return account_id;

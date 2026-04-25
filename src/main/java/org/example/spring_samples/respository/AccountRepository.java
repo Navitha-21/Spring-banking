@@ -19,6 +19,11 @@ public class AccountRepository {
          entityManager.persist(acc);
     }
 
+    @Transactional
+    public void update(Account acc) {
+        entityManager.merge(acc);
+    }
+
     public Account findById(Long id) {
         return entityManager.find(Account.class, id);
     }
