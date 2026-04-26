@@ -1,9 +1,8 @@
 package org.example.spring_samples.service;
 
 import org.example.spring_samples.entity.Account;
-import org.example.spring_samples.entity.Transactions;
 import org.example.spring_samples.respository.AccountRepository;
-import org.example.spring_samples.respository.TransactionsRepository;
+import org.example.spring_samples.spring_AOP.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +15,7 @@ public class AccountService {
 //    @Autowired
 //    TransactionsRepository transactionsRepository;
     @Autowired
-    PaymentService paymentService;
+PaymentService paymentService;
 
     public void createAccount(Account acc) {
         accountRepository.save(acc);

@@ -3,7 +3,6 @@ package org.example;
 import org.example.spring_samples.config.AppConfigDataJPA;
 import org.example.spring_samples.entity.Account;
 import org.example.spring_samples.service.AccountService;
-import org.example.spring_samples.service.PaymentService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.Scanner;

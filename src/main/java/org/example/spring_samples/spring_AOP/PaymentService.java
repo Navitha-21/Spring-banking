@@ -1,6 +1,5 @@
-package org.example.spring_samples.service;
+package org.example.spring_samples.spring_AOP;
 
-import jakarta.transaction.Transactional;
 import org.example.spring_samples.entity.Account;
 import org.example.spring_samples.entity.Transactions;
 import org.example.spring_samples.respository.AccountRepository;
@@ -47,8 +46,8 @@ public class PaymentService {
         to.setBalance(to.getBalance() + amount);
         accountRepository.update(from);
         accountRepository.update(to);
-        saveTransactions(from, "Null", amount);
-        saveTransactions(to, "Null", amount);
+        saveTransactions(from, "Debit", amount);
+        saveTransactions(to, "Credit", amount);
     }
 
     public void printTransactions(Long acc_id) {

@@ -3,7 +3,7 @@ package org.example.spring_samples.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="transactions")
+@Table(name="transaction")
 public class Transactions {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,9 +19,9 @@ public class Transactions {
     @Column(name="type")
     private String type;
 
-//    @Column(name="account_id")
+//    @Column(name="accountid")
 //    public String account_id;
-
+//
 
     public int getId(){
         return id;
@@ -59,6 +59,6 @@ public class Transactions {
 //    public void setAccount_id(String account_id) {
 //        this.account_id = account_id;
 //    }
-//
+
 
 }
