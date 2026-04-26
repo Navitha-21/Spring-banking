@@ -52,12 +52,6 @@ public class Transactions {
         this.type = type;
     }
 
-    public  Long getFromAcc() {
-        return fromAcc;
-    }
-    public void setFromAcc(Long fromAcc){
-        this.fromAcc = fromAcc;
-    }
 
 //    public String getAccount_id(){
 //        return account_id;
