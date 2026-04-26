@@ -4,6 +4,7 @@ import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -15,6 +16,7 @@ import java.util.Properties;
 @Configuration
 @ComponentScan("org.example.spring_samples")
 @EnableTransactionManagement
+@EnableAspectJAutoProxy
 public class AppConfigDataJPA {
     @Bean
     public DataSource dataSource(){

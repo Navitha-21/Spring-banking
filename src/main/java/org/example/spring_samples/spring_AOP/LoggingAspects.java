@@ -13,6 +13,7 @@ import java.util.Arrays;
 @Component
 @Aspect
 public class LoggingAspects {
+
     @Before(" execution(* org.example.spring_samples.spring_AOP.PaymentService.*(..))")
     public void logBefore(JoinPoint jp){
         String name = jp.getSignature().getName();

@@ -50,13 +50,13 @@ public class PaymentService {
         saveTransactions(to, "Credit", amount);
     }
 
-    public void printTransactions(Long acc_id) {
-        Account acc = accountRepository.findById(acc_id);
-        if (acc == null) {
-            throw new IllegalArgumentException("Account not found");
-        }
-        transactionsRepository.findByAccount(acc).forEach(System.out::println);
-    }
+//    public void printTransactions(Long acc_id) {
+//        Account acc = accountRepository.findById(acc_id);
+//        if (acc == null) {
+//            throw new IllegalArgumentException("Account not found");
+//        }
+//        transactionsRepository.findByAccount(acc).forEach(System.out::println);
+//    }
 
    private void saveTransactions(Account acc,String type,double amount){
         Transactions tnx = new Transactions() ;

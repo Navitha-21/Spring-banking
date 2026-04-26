@@ -14,8 +14,9 @@ public class AccountService {
     AccountRepository accountRepository;
 //    @Autowired
 //    TransactionsRepository transactionsRepository;
+
     @Autowired
-PaymentService paymentService;
+    PaymentService paymentService;
 
     public void createAccount(Account acc) {
         accountRepository.save(acc);
@@ -102,9 +103,6 @@ PaymentService paymentService;
 
     public void transfer(Long fromAcc, Long toAcc, double amount) {
         paymentService.transfer(fromAcc, toAcc, amount);
-    }
-    public void printTransactions(Long acc_id) {
-        paymentService.printTransactions(acc_id);
     }
 
 
