@@ -2,11 +2,10 @@ package org.example;
 
 import org.example.spring_samples.config.AppConfigDataJPA;
 import org.example.spring_samples.entity.Account;
-import org.example.spring_samples.entity.Transactions;
 import org.example.spring_samples.service.AccountService;
+import org.example.spring_samples.service.PaymentService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -14,6 +13,7 @@ public class Main {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfigDataJPA.class);
         AccountService accountService = ctx.getBean(AccountService.class);
+
         Scanner sc=new Scanner(System.in);
         int choice;
         while(true){

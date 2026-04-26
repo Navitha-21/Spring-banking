@@ -19,10 +19,6 @@ public class Transactions {
     @Column(name="type")
     private String type;
 
-    @Column(name="fromacc_id")
-    private Long fromAcc;
-
-//
 //    @Column(name="account_id")
 //    public String account_id;
 
