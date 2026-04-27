@@ -49,22 +49,6 @@ public class PaymentService {
         saveTransactions(fromAcc,toAcc, "Transfer", amount);
     }
 
-//    public void printTransactions(Long acc_id) {
-//        Account acc = accountRepository.findById(acc_id);
-//        if (acc == null) {
-//            throw new IllegalArgumentException("Account not found");
-//        }
-//        transactionsRepository.findByAccount(acc).forEach(System.out::println);
-//    }
-
-//   private void saveTransactions(Account acc, String type, double amount){
-//        Transactions tnx = new Transactions() ;
-//        tnx.setAccount(acc);
-//        tnx.setType(type);
-//        tnx.setAmount(amount);
-//       transactionsRepository.save(tnx);
-//    }
-
     private void saveTransactions(Long fromAcc, Long toAcc, String type, double amount){
         Transactions tnx = new Transactions() ;
         tnx.setFromacc(fromAcc);

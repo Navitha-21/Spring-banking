@@ -21,12 +21,9 @@ public class Transactions {
     @Column(name="amount")
     private double amount;
 
-    @JoinColumn(name="type")
+    @Column(name="type")
     private String type;
 
-//    @Column(name="accountid")
-//    public String account_id;
-//
 
     public int getId(){
         return id;
@@ -69,13 +66,6 @@ public class Transactions {
     public void setToacc(Long toacc){
         this.toacc=toacc;
     }
-
-//    public String getAccount_id(){
-//        return account_id;
-//    }
-//    public void setAccount_id(String account_id) {
-//        this.account_id = account_id;
-//    }
 
 
 }
