@@ -3,7 +3,7 @@ package org.example.spring_samples.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="transaction")
+@Table(name="transactions")
 public class Transactions {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,10 +13,15 @@ public class Transactions {
     @ManyToOne
     private Account account;
 
+//    @Column(name="fromacc_id")
+//    private String fromacc;
+//
+//    @Column(name="toacc_id")
+//    private String  toacc;
     @Column(name="amount")
     private double amount;
 
-    @Column(name="type")
+    @JoinColumn(name="type")
     private String type;
 
 //    @Column(name="accountid")
@@ -41,7 +46,6 @@ public class Transactions {
         return amount;
     }
     public void setAmount(double amount) {
-
         this.amount = amount;
     }
 
@@ -52,6 +56,19 @@ public class Transactions {
         this.type = type;
     }
 
+//    public String getFromacc(){
+//        return fromacc;
+//    }
+//    public void setFromacc(String fromacc){
+//        this.fromacc=fromacc;
+//    }
+//
+//    public String getToacc(){
+//        return toacc;
+//    }
+//    public void setToacc(String toacc){
+//        this.toacc=toacc;
+//    }
 
 //    public String getAccount_id(){
 //        return account_id;

@@ -58,11 +58,13 @@ public class PaymentService {
 //        transactionsRepository.findByAccount(acc).forEach(System.out::println);
 //    }
 
-   private void saveTransactions(Account acc,String type,double amount){
+   private void saveTransactions(Account acc, String type, double amount){
         Transactions tnx = new Transactions() ;
         tnx.setAccount(acc);
         tnx.setType(type);
         tnx.setAmount(amount);
-        transactionsRepository.save(tnx);
+//       tnx.setAccount(acc2);
+       transactionsRepository.save(tnx);
     }
+
 }

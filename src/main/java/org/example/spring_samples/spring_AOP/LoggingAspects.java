@@ -27,7 +27,6 @@ public class LoggingAspects {
         Object[] args = jp.getArgs();
         System.out.println("Logging After payment method execution. MethodId: "+id + "  args:  "+ Arrays.asList(args));
     }
-
     @Around(" execution(* org.example.spring_samples.spring_AOP.PaymentService.*(..))")
     public Object logAround(ProceedingJoinPoint jp) throws Throwable{
         String id = jp.getSignature().getName();

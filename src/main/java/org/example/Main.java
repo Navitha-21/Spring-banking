@@ -59,18 +59,18 @@ public class Main {
                         break;
                     case 2:
                         System.out.println("Account id: ");
-                        Long dAcc_num = sc.nextLong();
+                        Long dAcc_id = sc.nextLong();
                         System.out.println("Amount: ");
                         double dAmount = sc.nextDouble();
-                        accountService.deposit(dAcc_num, dAmount);
+                        accountService.deposit(dAcc_id, dAmount);
                         break;
                     case 3:
                         System.out.println("Account id: ");
-                        Long wAcc_num = sc.nextLong();
+                        Long wAcc_id = sc.nextLong();
                         System.out.println("Amount: ");
                         double wAmount = sc.nextDouble();
 
-                        accountService.withdraw(wAcc_num, wAmount);
+                        accountService.withdraw(wAcc_id, wAmount);
                         break;
                     case 4:
                         System.out.println("From Account id: ");
