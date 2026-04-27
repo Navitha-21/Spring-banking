@@ -21,7 +21,7 @@ public class PaymentService {
         }
         acc.setBalance(acc.getBalance() + amount);
         accountRepository.update(acc);
-        saveTransactions(acc, "Deposit", amount);
+        saveTransactions(acc_id, null,"Deposit", amount);
 
     }
 
@@ -32,7 +32,7 @@ public class PaymentService {
         }
         acc.setBalance(acc.getBalance() - amount );
         accountRepository.update(acc);
-        saveTransactions(acc,"Withdraw",amount);
+        saveTransactions(acc_id,null,"Withdraw",amount);
     }
 
 
@@ -46,7 +46,7 @@ public class PaymentService {
         to.setBalance(to.getBalance() + amount);
         accountRepository.update(from);
         accountRepository.update(to);
-        saveTransactionss(fromAcc,toAcc, "Transfer", amount);
+        saveTransactions(fromAcc,toAcc, "Transfer", amount);
     }
 
 //    public void printTransactions(Long acc_id) {
@@ -57,15 +57,15 @@ public class PaymentService {
 //        transactionsRepository.findByAccount(acc).forEach(System.out::println);
 //    }
 
-   private void saveTransactions(Account acc, String type, double amount){
-        Transactions tnx = new Transactions() ;
-        tnx.setAccount(acc);
-        tnx.setType(type);
-        tnx.setAmount(amount);
-       transactionsRepository.save(tnx);
-    }
+//   private void saveTransactions(Account acc, String type, double amount){
+//        Transactions tnx = new Transactions() ;
+//        tnx.setAccount(acc);
+//        tnx.setType(type);
+//        tnx.setAmount(amount);
+//       transactionsRepository.save(tnx);
+//    }
 
-    private void saveTransactionss(Long fromAcc, Long toAcc, String type, double amount){
+    private void saveTransactions(Long fromAcc, Long toAcc, String type, double amount){
         Transactions tnx = new Transactions() ;
         tnx.setFromacc(fromAcc);
         tnx.setToacc(toAcc);
