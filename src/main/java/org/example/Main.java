@@ -90,6 +90,7 @@ public class Main {
                         System.out.println("Invalid choice");
                 }
             } catch(IllegalArgumentException e){
+                System.out.println(e.getMessage());
 
             }
 

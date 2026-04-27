@@ -13,11 +13,11 @@ public class Transactions {
     @ManyToOne
     private Account account;
 
-//    @Column(name="fromacc_id")
-//    private String fromacc;
-//
-//    @Column(name="toacc_id")
-//    private String  toacc;
+    @Column(name="fromacc_id")
+    private Long fromacc;
+
+    @Column(name="toacc_id")
+    private Long  toacc;
     @Column(name="amount")
     private double amount;
 
@@ -56,19 +56,19 @@ public class Transactions {
         this.type = type;
     }
 
-//    public String getFromacc(){
-//        return fromacc;
-//    }
-//    public void setFromacc(String fromacc){
-//        this.fromacc=fromacc;
-//    }
-//
-//    public String getToacc(){
-//        return toacc;
-//    }
-//    public void setToacc(String toacc){
-//        this.toacc=toacc;
-//    }
+    public Long getFromacc(){
+        return fromacc;
+    }
+    public void setFromacc(Long fromacc){
+        this.fromacc=fromacc;
+    }
+
+    public Long getToacc(){
+        return toacc;
+    }
+    public void setToacc(Long toacc){
+        this.toacc=toacc;
+    }
 
 //    public String getAccount_id(){
 //        return account_id;

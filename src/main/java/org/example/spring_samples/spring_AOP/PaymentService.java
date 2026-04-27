@@ -46,8 +46,7 @@ public class PaymentService {
         to.setBalance(to.getBalance() + amount);
         accountRepository.update(from);
         accountRepository.update(to);
-        saveTransactions(from, "Debit", amount);
-        saveTransactions(to, "Credit", amount);
+        saveTransactionss(fromAcc,toAcc, "Transfer", amount);
     }
 
 //    public void printTransactions(Long acc_id) {
@@ -63,8 +62,15 @@ public class PaymentService {
         tnx.setAccount(acc);
         tnx.setType(type);
         tnx.setAmount(amount);
-//       tnx.setAccount(acc2);
        transactionsRepository.save(tnx);
     }
 
+    private void saveTransactionss(Long fromAcc, Long toAcc, String type, double amount){
+        Transactions tnx = new Transactions() ;
+        tnx.setFromacc(fromAcc);
+        tnx.setToacc(toAcc);
+        tnx.setType(type);
+        tnx.setAmount(amount);
+        transactionsRepository.save(tnx);
+    }
 }
